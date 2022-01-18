@@ -15,15 +15,15 @@ class GulimailProductApplicationTests {
     @Test
     void contextLoads() {
         BrandEntity brandEntity = new BrandEntity();
-//        brandEntity.setDescript("hahaha");
-//        brandEntity.setName("华为");
-//        brandService.save(brandEntity);
-//        System.out.println("保存成功");
+        brandEntity.setDescript("hahaha");
+        brandEntity.setName("华为");
+        brandService.save(brandEntity);
+        System.out.println("保存成功");
 
 
-        brandEntity.setBrandId(1L);
-        brandEntity.setDescript("修改");
-        brandService.updateById(brandEntity);
+//        brandEntity.setBrandId(1L);
+//        brandEntity.setDescript("修改");
+//        brandService.updateById(brandEntity);
 
     }
 
