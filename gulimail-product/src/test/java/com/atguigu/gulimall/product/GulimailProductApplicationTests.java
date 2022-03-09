@@ -9,22 +9,22 @@ import org.springframework.boot.test.context.SpringBootTest;
 @SpringBootTest
 class GulimailProductApplicationTests {
 
-    @Autowired
-    private BrandService brandService;
+//    @Autowired
+//    private BrandService brandService;
+//
+//    @Test
+//    void contextLoads() {
+//        BrandEntity brandEntity = new BrandEntity();
+//        brandEntity.setDescript("hahaha");
+//        brandEntity.setName("华为");
+//        brandService.save(brandEntity);
+//        System.out.println("保存成功");
+//
+//
+////        brandEntity.setBrandId(1L);
+////        brandEntity.setDescript("修改");
+////        brandService.updateById(brandEntity);
 
-    @Test
-    void contextLoads() {
-        BrandEntity brandEntity = new BrandEntity();
-        brandEntity.setDescript("hahaha");
-        brandEntity.setName("华为");
-        brandService.save(brandEntity);
-        System.out.println("保存成功");
-
-
-//        brandEntity.setBrandId(1L);
-//        brandEntity.setDescript("修改");
-//        brandService.updateById(brandEntity);
-
-    }
+    //}
 
 }
