@@ -81,4 +81,13 @@ public class CouponController {
         return R.ok();
     }
 
+    @RequestMapping("/member/list")
+    public R membercoupons(){  // 全系统的所有返回都返回R
+        // 应该去数据库查用户对应得优惠劵，但这个我们简化了，不去数据库查了，构造一个优惠劵给他返回
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("满100-10");
+        return R.ok().put("coupons", Arrays.asList(couponEntity));
+
+    }
+
 }
