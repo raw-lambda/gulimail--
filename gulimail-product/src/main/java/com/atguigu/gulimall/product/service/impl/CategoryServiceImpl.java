@@ -35,15 +35,16 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
     public List<CategoryEntity>
     listWithTree() {
         // 查出所有分类
-        List<CategoryEntity> entities = baseMapper.selectList(null);
-//        System.out.println(entities);
+        List<CategoryEntity> entities2 = baseMapper.selectList(null);
+        System.out.println(entities2.size());
+//        System.out.println(entities2);
         // 组装成父子的树形结构
 
         // 2.1找到所有的一级分类
-        List<CategoryEntity> level1Menus = entities.stream().filter(categoryEntity ->
+        List<CategoryEntity> level1Menus = entities2.stream().filter(categoryEntity ->
                 categoryEntity.getParentCid() == 0
         ).map(menu -> {
-            menu.setChildren(getChildrens(menu, entities));
+            menu.setChildren(getChildrens(menu, entities2));
             return menu;
         }).sorted((menu1, menu2) -> {return (menu1.getSort()==null?0:menu1.getSort()) - (menu2.getSort()==null?0:menu2.getSort());}
         ).collect(Collectors.toList());
@@ -59,9 +60,7 @@ public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity
 
     // 递归查找所有菜单的子菜单
     private List<CategoryEntity> getChildrens(CategoryEntity root, List<CategoryEntity> all){
-        List<CategoryEntity> children = all.stream().filter(categoryEntity -> {
-            return categoryEntity.getParentCid() == root.getCatId();
-        }).map(categoryEntity -> {
+        List<CategoryEntity> children = all.stream().filter(categoryEntity -> categoryEntity.getParentCid() == root.getCatId()).map(categoryEntity -> {
             // 1.找到子菜单
             categoryEntity.setChildren(getChildrens(categoryEntity, all));
             return categoryEntity;
