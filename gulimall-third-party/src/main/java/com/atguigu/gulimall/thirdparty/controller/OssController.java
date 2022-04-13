@@ -28,8 +28,6 @@ public class OssController {
     OSS ossClient;
 
 
-
-
     @Value("${alibaba.cloud.oss.endpoint}")
     private String endpoint;
 
